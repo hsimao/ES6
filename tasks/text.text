@@ -1,0 +1,20 @@
+腳本執行順序說明
+
+開發用指令須加 --watch 才會持續監聽
+gulp --watch
+
+運行時會從gulpfile.babel.js 引入tasks腳本
+
+執行腳本指令 gulp build
+執行順序 clean.js > css.js > pages.js > scripts.js > browser.js > server.js
+
+defatul指令 gulp 會執行gulp build
+
+build.js     控制各個腳本執行順序
+default.js   執行gulp 後面沒輸入其他指令，就會執行該檔案預設的腳本
+scripts.js   編譯js es6 => es5
+pages.js     編譯ejs
+css.js       編譯css
+server.js    啟用server、熱加載功能
+browser.js   監聽開發資料夾底下的js、css、ejs 執行相對應gulp腳本
+clean.js     清空server底下的js、ejs檔案
